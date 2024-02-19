@@ -1,0 +1,89 @@
+{
+    "ipfix": {
+        "collectingProcess": [
+            {
+                "name": "collector1",
+                "tcpCollector": {
+                    "name": "tcp1",
+                    "localPort": 3737,
+                    "transportSession": {
+                        "ipfixVersion": "10",
+                        "sourceAddress": null,
+                        "destinationAddress": null,
+                        "sourcePort": null,
+                        "destinationPort": null,
+                        "sctpAssocId": null,
+                        "status": null,
+                        "rate": null,
+                        "bytes": null,
+                        "messages": null,
+                        "discardedMessages": null,
+                        "records": null,
+                        "templates": null,
+                        "optionsTemplates": null,
+                        "transportSessionStartTime": null,
+                        "transportSessionDiscontinuityTime": null,
+                        "template": [
+                            {
+                                "observationDomainId": null,
+                                "templateId": null,
+                                "setId": null,
+                                "accessTime": null,
+                                "templateDataRecords": null,
+                                "templateDiscontinuityTime": null,
+                                "field": {
+                                    "ieId": null,
+                                    "ieLength": null,
+                                    "ieEnterpriseNumber": null,
+                                    "isFlowKey": null,
+                                    "isScope": null
+                                }
+                            }
+                        ]
+                    },
+                    "localIPAddress": "localhost"
+                },
+                "udpCollector": {
+                    "name": "udp1",
+                    "localPort": 3737,
+                    "transportSession": {
+                        "ipfixVersion": "10",
+                        "sourceAddress": null,
+                        "destinationAddress": null,
+                        "sourcePort": null,
+                        "destinationPort": null,
+                        "sctpAssocId": null,
+                        "status": null,
+                        "rate": null,
+                        "bytes": null,
+                        "messages": null,
+                        "discardedMessages": null,
+                        "records": null,
+                        "templates": null,
+                        "optionsTemplates": null,
+                        "transportSessionStartTime": null,
+                        "transportSessionDiscontinuityTime": null,
+                        "template": [
+                            {
+                                "observationDomainId": null,
+                                "templateId": null,
+                                "setId": null,
+                                "accessTime": null,
+                                "templateDataRecords": null,
+                                "templateDiscontinuityTime": null,
+                                "field": {
+                                    "ieId": null,
+                                    "ieLength": null,
+                                    "ieEnterpriseNumber": null,
+                                    "isFlowKey": null,
+                                    "isScope": null
+                                }
+                            }
+                        ]
+                    },
+                    "localIPAddress": "localhost"
+                }
+            }
+        ]
+    }
+}

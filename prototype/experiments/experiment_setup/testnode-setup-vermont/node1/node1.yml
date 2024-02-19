@@ -1,0 +1,3 @@
+a:
+        local:
+                variable: 'from node1'

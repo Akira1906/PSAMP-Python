@@ -1,0 +1,42 @@
+<ipfixConfig>
+	<observer id="1">
+		<interface>enp1s0f1</interface>
+		<replaceTimestamps>true</replaceTimestamps>
+		<pcap_filter>ip</pcap_filter>
+		<captureLength>128</captureLength>
+		<next>2</next>
+	</observer>
+	
+	<packetQueue id="2">
+		<maxSize>1000</maxSize>
+		<next>3</next>
+	</packetQueue>
+	
+	<filter id="3">
+		<hostBased>
+			<addrFilter>src</addrFilter>
+			<ip>192.168.2.37</ip>
+		</hostBased>
+		<next>4</next>
+		</filter>
+		
+	<packetQueue id="4">
+		<maxSize>1000</maxSize>
+		<next>5</next>
+	</packetQueue>
+	
+	
+	<psampExporter id="5">
+		<packetReporting>
+			<templateId>888</templateId>
+			<reportedIE>
+			    <ieName>observationTimeMilliseconds</ieName>
+			</reportedIE>
+		</packetReporting>
+		<collector>
+			<ipAddress>127.0.0.1</ipAddress>
+			<transportProtocol>UDP</transportProtocol>
+			<port>3737</port>
+		</collector>
+	</psampExporter>	
+</ipfixConfig>

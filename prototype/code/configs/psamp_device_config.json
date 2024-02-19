@@ -1,0 +1,126 @@
+{
+    "ipfix": {
+        "selectionProcess": [
+            {
+                "name": "SelectCamera1",
+                "selector": [
+                    {
+                        "name": "cameraSourceIPv4Address",
+                        "filterMatch": true,
+                        "ieName": "sourceIPv4Address",
+                        "ieId": "8",
+                        "value": "192.168.2.37"
+                    },
+                    {
+                        "name": "cameraDestinationIPv4Address",
+                        "filterMatch": true,
+                        "ieName": "destinationIPv4Address",
+                        "ieId": "12",
+                        "value": "192.168.2.100"
+                    }
+                ]
+            }
+        ],
+        "observationPoint": [
+            {
+                "name": "mainObservationPoint",
+                "observationPointId": "1",
+                "observationDomainId": "1",
+                "direction": "Ingress",
+                "selectionProcess": "SelectP1",
+                "ifIndex": "1"
+            }
+        ],
+        "cache": [
+            {
+                "name": "mainCache",
+                "immediateCache": true,
+                "templateId": "255",
+                "cacheLayout": [
+                    {
+                        "name": "selectionSequenceId",
+                        "ieLength": "4",
+                        "ieName": "selectionSequenceId",
+                        "ieId": "301"
+                    },
+                    {
+                        "name": "ipTotalLength",
+                        "ieLength": "4",
+                        "ieName": "ipTotalLength",
+                        "ieId": "224"
+                    }
+                ]
+            }
+        ],
+        "exportingProcess": [
+            {
+                "name": "exporter1",
+                "exportingProcessId": "1",
+                "exportMode": "",
+                "destination": [
+                    {
+                        "name": "NHM-TCP",
+                        "tcpExporter": {
+                            "ipfixVersion": "10",
+                            "destinationPort": "3737",
+                            "sourceIPAddress": "",
+                            "destinationIPAddress": "127.0.0.1",
+                            "ifIndex": "1",
+                            "ifName": "if1",
+                            "sendBufferSize": "",
+                            "rateLimit": "",
+                            "transportSession": {},
+                            "customPacketReportInterpretationInterval": "1",
+                            "template": {
+                                "basicPacketReport": {
+                                    "observationDomainId": "",
+                                    "templateId": "258",
+                                    "setId": "2",
+                                    "field": [
+                                        {
+                                            "ieId": "301",
+                                            "ieLength": "4"
+                                        },
+                                        {
+                                            "ieId": "325",
+                                            "ieName": "observationTimeNanoseconds",
+                                            "ieLength": "8"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "selectionSequenceStatisticsReportInterpretation": {
+                                                "observationDomainId": "",
+                                                "templateId": "257",
+                                                "setId": "3",
+                                                "field": [
+                                                    {
+                                                        "ieId": "301",
+                                                        "ieLength": "4",
+                                                        "isScope": true
+                                                    },
+                                                    {
+                                                        "ieId": "318",
+                                                        "ieLength": "4"
+                                                    },
+                                                    {
+                                                        "ieId": "319",
+                                                        "ieLength": "4"
+                                                    },
+                                                    {
+                                                        "ieId": "319",
+                                                        "ieLength": "4"
+                                                    },
+                                                    {
+                                                        "ieId": "319",
+                                                        "ieLength": "4"
+                                                    }
+                                                ]
+                                            }
+                    }
+                ]
+            }
+        ]
+    }
+}

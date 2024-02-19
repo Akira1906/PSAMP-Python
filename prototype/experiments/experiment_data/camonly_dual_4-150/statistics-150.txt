@@ -1,0 +1,10 @@
+Cam 1: 3662 packets
+
+run1: 3257
+run2: 3647
+run3: 3183
+run4: 3660
+
+average:3436,75
+percent: 0,938489896
+packet report loss: 0,061510104

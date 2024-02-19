@@ -1,0 +1,11 @@
+tcp replay running on cesis test bed
+
+parser.py runs on nida test bed
+tcprewrite --infile=cam_cleaned.pcap --outfile=cam_cleaned.pcap --enet-dmac=90:e2:ba:1c:55:7c
+tcprewrite --infile=cam_cleaned.pcap --outfile=cam_cleaned.pcap --enet-smac=00:25:90:ed:bd:dc
+tcprewrite --infile=cam_cleaned.pcap --outfile=cam_cleaned.pcap --srcipmap=192.168.2.2/32:172.16.0.1
+tcprewrite --infile=camwithbackground.pcap --outfile=cam_cleaned.pcap --dstipmap=192.168.2.100/0:172.16.9.1 --portmap=81:3737
+tcpdump -r cam_cleaned.pcap 
+sudo tcpreplay --intf1=eno1 cam_cleaned.pcap
+tcprewrite --infile=camwithbackground.pcap --outfile=cam_cleaned.pcap --enet-smac=00:25:90:ed:bd:dc --enet-dmac=90:e2:ba:1c:55:7c --srcipmap=192.168.2.2/32:172.16.0.1 --dstipmap=192.168.2.100/32:172.16.9.1 --portmap=81:3737
+

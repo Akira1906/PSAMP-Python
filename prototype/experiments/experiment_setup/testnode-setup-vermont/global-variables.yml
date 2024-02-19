@@ -1,0 +1,10 @@
+a:
+        global:
+                ifnode1: 'enp1s0f1'
+                ethnode1: '90:e2:ba:92:db:fd'
+                ifnode2: 'enp2s0f1'
+                ethnode2: '00:1b:21:94:de:b5'
+                portremap: '81:81'
+                accesstoken: 'glpat-vDv43fuzq-x6QqSH7egz'
+                pcap: 'ba-doering/code/pcaps/camonly_dual_4-1000.pcap'
+                experimentcounter: 1

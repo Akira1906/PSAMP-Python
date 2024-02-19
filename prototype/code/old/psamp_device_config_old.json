@@ -1,0 +1,226 @@
+{
+    "ipfix": {
+        "selectionProcess": {
+            "SelectP1": {
+                "name": "SelectP1",
+                "selector": [
+                    {
+                        "name": "selectTest",
+                        "selectAll": true
+                    },
+                    {
+                        "name": "propertyMatchTest",
+                        "filterMatch": true,
+                        "ieName": "sourceIPv4Address",
+                        "ieId": "8",
+                        "value": "192.168.170.8"
+                    }
+                ]
+            },
+            "SelectP2": {
+                "name": "SelectP2",
+                "selector": [
+                    {
+                        "name": "matchIpAddress",
+                        "filterMatch": true,
+                        "ieName": "sourceIPv4Address",
+                        "ieId": "8",
+                        "value": "192.168.170.8"
+                    },
+                    {
+                        "name": "matchdstIPAddress",
+                        "filterMatch": true,
+                        "ieName": "destinationIPv4Address",
+                        "ieId": "12",
+                        "value": "192.168.170.20"
+                    },
+                    {
+                        "name": "matchTTL",
+                        "filterMatch": true,
+                        "ieName": "ipTTL",
+                        "ieId": "192",
+                        "value": "64"
+                    }
+                ]
+            },
+            "SelectHash": {
+                "name": "SelectHash",
+                "selector": [
+                    {
+                        "name": "HashTest",
+                        "filterHash": true,
+                        "hashFunction": "8",
+                        "initializerValue": 333,
+                        "ipPayloadOffset": 3,
+                        "ipPayloadSize" : 5,
+                        "digestOutput": true,
+                        "outputRangeMin": 100,
+                        "outputRangeMax": 1000,
+                        "selectedRange": {
+                            "TestSelectRange1":{
+                                "name": "TestSelectRange1",
+                                "min": 300,
+                                "max": 369
+                            },
+                            "TestSelectRange2":{
+                                "name": "TestSelectRange2",
+                                "min": 420,
+                                "max": 690
+                            },
+                            "TestSelectAll":{
+                                "name": "TestSelectAll",
+                                "min": 0,
+                                "max": 2147483647
+                            }
+                        }
+
+                    }
+                ]
+            }
+
+        },
+        "observationPoint" :{
+            "mainObservationPoint" : {
+                "name": "mainObservationPoint",
+                "observationDomainId": "1",
+                "direction": "Ingress",
+                "selectionProcess": "SelectP1",
+                "ifIndex": "1"
+            }
+        },
+        "cache" :{
+            "mainCache" : {
+                "name": "mainCache",
+                "immediateCache": true,
+                "templateId": "255",
+                "cacheLayout" :[
+                    {
+                        "name": "hashId",
+                        "ieName": "digestHashValue",
+                        "ieId": "326",
+                        "ieLength": "4"
+                    },
+                    {
+                        "name": "selectionSequenceId",
+                        "ieLength": "4",
+                        "ieName": "selectionSequenceId",
+                        "ieId": "301"
+                    },
+                    {
+                        "name": "ipTotalLength",
+                        "ieLength": "4",
+                        "ieName": "ipTotalLength"
+                    },
+                    {
+                        "name": "packetContent",
+                        "ieLength": "65535",
+                        "ieId": "492"
+                    }
+                ]
+            }
+        },
+        "template":{
+            "selectionSequenceReportInterpretation":{
+                "observationDomainId" : 0,
+                "templateId" : "256",
+                "setId" : "3",
+                "field" :[
+                    {
+                        "ieId": "301",
+                        "ieLength" : "4",
+                        "isScope" : true
+                    },
+                    {
+                        "ieId": "10",
+                        "ieLength" : "2"
+                    },
+                    {
+                        "ieId": "302",
+                        "ieLength" : "4"
+                    },
+                    {
+                        "ieId": "302",
+                        "ieLength" : "4"
+                    }
+                ]
+            },
+            "selectionSequenceReportInterpretation": {
+                "observationDomainId": "",
+                "templateId": "256",
+                "setId": "3",
+                "field": [
+                    {
+                        "ieId": "301",
+                        "ieLength": "4",
+                        "isScope": true
+                    },
+                    {
+                        "ieId": "10",
+                        "ieLength": "2"
+                    },
+                    {
+                        "ieId": "302",
+                        "ieLength": "4"
+                    },
+                    {
+                        "ieId": "302",
+                        "ieLength": "4"
+                    },
+                    {
+                        "ieId": "302",
+                        "ieLength": "4"
+                    }
+                ]
+            },
+            "basicPacketReport": {
+                "observationDomainId": "",
+                "templateId": "258",
+                "setId": "2",
+                "field": [
+                    {
+                        "ieId": "301",
+                        "ieLength": "4"
+                    },
+                    {
+                        "ieId": "325",
+                        "ieName": "observationTimeNanoseconds",
+                        "ieLength": "8"
+                    },
+                    {
+                        "ieId": "54",
+                        "ieName": "fragmentIdentification",
+                        "ieLength": "4"
+                    }
+                ]
+            },
+            "selectionSequenceStatisticsReportInterpretation": {
+                                    "observationDomainId": "",
+                                    "templateId": "257",
+                                    "setId": "3",
+                                    "field": [
+                                        {
+                                            "ieId": "301",
+                                            "ieLength": "4",
+                                            "isScope": true
+                                        },
+                                        {
+                                            "ieId": "318",
+                                            "ieLength": "4"
+                                        },
+                                        {
+                                            "ieId": "319",
+                                            "ieLength": "4"
+                                        },
+                                        {
+                                            "ieId": "319",
+                                            "ieLength": "4"
+                                        },
+                                        {
+                                            "ieId": "319",
+                                            "ieLength": "4"
+                                        }
+                                    ]
+                                }
+        }
+    }
+}
