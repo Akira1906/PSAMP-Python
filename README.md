@@ -1,6 +1,6 @@
 # PSAMP Packet Selection Architecture 
 
-This repository contains Python prototypes for the components of a PSAMP (Packet Sampling) based Packet Selection Architecture. The purpose of this architecture is to provide an innovative application fot the PSAMP architecture for packet filtering to support various kinds of network functions.
+This repository contains Python implementations for the components of a PSAMP ([RFC 5476: Packet Sampling](https://datatracker.ietf.org/doc/rfc5476/) based Packet Selection Architecture. The purpose of this architecture is to provide an innovative application for the PSAMP architecture for packet filtering to support various kinds of network functions.
 
 ## Components 
 
