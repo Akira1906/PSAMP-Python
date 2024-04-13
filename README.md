@@ -10,7 +10,7 @@ This repository contains implementations of two PSAMP Devices:
 
 2. **psamp_collector.py**: This component incorporates a Collecting Process and a network function. It is responsible for collecting PSAMP protocol messages and is connected to the PSAMP_Device.py.
 
-Both components are configured to be executed on the same host. For further insights on the implementation read the implementation chapter of the accompanying thesis.
+Both components are configured to be executed on the same host. For further insights on the implementation read the implementation chapter of the accompanying thesis `thesis_packet-selection_tristan-doering.pdf`.
 
 ## Installation
 
